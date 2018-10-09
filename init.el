@@ -23,7 +23,7 @@
 ;; (require 'setup-ggtags)
 (require 'setup-cedet)
 (require 'setup-editing)
-
+(require 'setup-evil)
 
 
 ;; function-args
@@ -38,7 +38,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (zygospore helm-gtags helm yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu))))
+    (zygospore helm-gtags helm yasnippet ws-butler volatile-highlights use-package undo-tree iedit dtrt-indent counsel-projectile company clean-aindent-mode anzu comment-dwim-2 color-theme-sanityinc-solarized evil evil-collection))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
