@@ -17,6 +17,12 @@
 ;; set appearance of a tab that is represented by 4 spaces
 (setq-default tab-width 4)
 
+;; remember cursor position
+(use-package saveplace
+  :init
+  (require 'saveplace)
+  (setq-default save-place t))
+
 ;; Compilation
 (global-set-key (kbd "<f5>") (lambda ()
                                (interactive)
@@ -32,11 +38,17 @@
  gdb-show-main t
  )
 
+
+;; magit
+(use-package magit
+  :bind (("C-x g" . magit-status)))
+
 ;; company
 (use-package company
   :init
   (global-company-mode 1)
-  (delete 'company-semantic company-backends))
+  (delete 'company-semantic company-backends)
+  (add-to-list 'company-backends 'company-c-headers))
 ;; (define-key c-mode-map  [(control tab)] 'company-complete)
 ;; (define-key c++-mode-map  [(control tab)] 'company-complete)
 
@@ -56,5 +68,25 @@
 ;; activate whitespace-mode to view all whitespace characters
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (windmove-default-keybindings)
+
+
+(use-package smartparens
+  :init
+  (require 'smartparens-config)
+  (show-smartparens-global-mode +1)
+  (smartparens-global-mode 1)
+  ;; when you press RET, the curly braces automatically
+  ;; add another newline
+  (sp-with-modes '(c-mode c++-mode)
+                 (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+                 (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
+                                                           ("* ||\n[i]" "RET")))))
+
+(use-package color-theme-sanityinc-solarized
+  :init
+  (color-theme-sanityinc-solarized-dark))
+
+;; tramp: don't forget passwords
+(setq password-cache-expiry nil)
 
 (provide 'setup-general)
