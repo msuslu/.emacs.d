@@ -32,7 +32,7 @@
 ;; (define-key c-mode-map  [(tab)] 'company-complete)
 ;; (define-key c++-mode-map  [(tab)] 'company-complete)
 
-(cmake-ide-setup)
+;;(cmake-ide-setup)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
