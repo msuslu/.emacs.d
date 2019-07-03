@@ -83,10 +83,6 @@
                  (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
                                                            ("* ||\n[i]" "RET")))))
 
-(use-package color-theme-sanityinc-solarized
-  :init
-  (color-theme-sanityinc-solarized-dark))
-
 ;; tramp: don't forget passwords
 (setq password-cache-expiry nil)
 
